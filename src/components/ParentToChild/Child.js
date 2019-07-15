@@ -3,7 +3,7 @@ import React, { Component } from "react";
 const Child = props => {
   return (
     <div>
-      <button onClick={props.buttonClick}>{props.title}</button>
+      <button buttonClick={props.buttonClick}>{props.title}</button>
     </div>
   );
 };
