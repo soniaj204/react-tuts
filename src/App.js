@@ -1,11 +1,16 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import "./App.css";
 import Users from "./components/Users/Users";
 import Parent from "./components/ParentToChild/Parent";
 import User from "./components/Users/User";
 import UniqueID from "react-html-id";
 
-class App extends Component {
+const Temp = props => {
+  console.log("render Temp");
+  return <div>{props.val}</div>;
+};
+
+class App extends PureComponent {
   constructor() {
     super();
     UniqueID.enableUniqueIds(this);
@@ -32,7 +37,8 @@ class App extends Component {
           name: "ABCD4",
           age: 40
         }
-      ]
+      ],
+      val: 1
     };
   }
 
@@ -67,6 +73,14 @@ class App extends Component {
     this.setState({ users: users });
   };
 
+  componentDidMount() {
+    setInterval(() => {
+      this.setState(() => {
+        return { val: 1 };
+      });
+    }, 2000);
+  }
+
   render() {
     return (
       <div className="App">
@@ -98,6 +112,9 @@ class App extends Component {
               }
             })}
           </ul>
+        </div>
+        <div>
+          <Temp val={this.state.val} />
         </div>
       </div>
     );
