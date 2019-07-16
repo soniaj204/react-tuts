@@ -3,6 +3,7 @@ import "./App.css";
 import Users from "./components/Users/Users";
 import Parent from "./components/ParentToChild/Parent";
 import User from "./components/Users/User";
+import ButtonOne from "./components/ButtonOne/ButtonOne";
 import UniqueID from "react-html-id";
 
 const Temp = props => {
@@ -115,6 +116,9 @@ class App extends PureComponent {
         </div>
         <div>
           <Temp val={this.state.val} />
+        </div>
+        <div>
+          <ButtonOne />
         </div>
       </div>
     );
